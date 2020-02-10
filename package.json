@@ -7,6 +7,7 @@
   "author": "Angel Hernandez <angel@theleadgroup.com>",
   "license": "MIT",
   "dependencies": {
+    "child_process": "^1.0.2",
     "console.table": "^0.10.0",
     "jspm": "^2.0.0-beta.7",
     "outdated": "^0.1.1"

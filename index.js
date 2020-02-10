@@ -1,5 +1,6 @@
 const outdated = require("outdated");
 require('console.table');
+const { exec } = require('child_process');
 
 function is_updatable_to(dep) {
   var local_v = dep.local.split('.').map(x => parseInt(x));
@@ -36,7 +37,14 @@ function update_dependencies(deps) {
   }
   if (deps_list !== '') {
     command += deps_list;
-    console.log(command);
+    console.log(`${command}\n`);
+    exec(command, (error, stdout, stderr) => {
+      console.log('stdout: ' + stdout);
+      console.log('stderr: ' + stderr);
+      if (error !== null) {
+        console.log('exec error: ' + error);
+      }
+    });    
   }
   else {
     console.log('There is nothing to update right now.');
