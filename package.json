@@ -1,6 +1,6 @@
 {
   "name": "yarn-upgrade-minor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Install the latest release with the same major version.",
   "main": "index.js",
   "repository": "https://github.com/tlg-265/yarn-upgrade-minor",
