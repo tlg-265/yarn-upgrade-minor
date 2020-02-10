@@ -33,7 +33,7 @@ function update_dependencies(deps) {
   for (var i = 0; i < deps.length; i++) {
     var name = deps[i].name;
     var target = deps[i].target;
-    deps_list += ` ${name}@^${target}`;
+    deps_list += ` "${name}@^${target}"`;
   }
   if (deps_list !== '') {
     command += deps_list;
@@ -44,7 +44,7 @@ function update_dependencies(deps) {
       if (error !== null) {
         console.log('exec error: ' + error);
       }
-    });    
+    });
   }
   else {
     console.log('There is nothing to update right now.');
