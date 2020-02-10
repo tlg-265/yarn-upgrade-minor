@@ -1,4 +1,5 @@
 const outdated = require("outdated");
+require('console.table');
 
 function is_updatable_to(dep) {
   var local_v = dep.local.split('.').map(x => parseInt(x));
@@ -24,25 +25,12 @@ function is_updatable_to(dep) {
 
 function update_dependencies(deps) {
   console.log(`Amount of dependencies to update their minor version: ${deps.length}\n`);
-  for (var i = 0; i < deps.length; i++) {
-    var index = deps[i].index;
-    var name = deps[i].name;
-    var local = deps[i].local;
-    var wanted = deps[i].wanted;
-    var latest = deps[i].latest;
-    var target = deps[i].target;
-    console.log(`[${index}] name: ${name} | local: ${local} | wanted: ${wanted} | latest: ${latest} | target: ${target}`);
-  }
-  console.log();
+  console.table(deps);
   console.log(`Command to run:\n`);
   var command = `yarn upgrade`;
   var deps_list = '';
   for (var i = 0; i < deps.length; i++) {
-    var index = deps[i].index;
     var name = deps[i].name;
-    var local = deps[i].local;
-    var wanted = deps[i].wanted;
-    var latest = deps[i].latest;
     var target = deps[i].target;
     deps_list += ` ${name}@^${target}`;
   }

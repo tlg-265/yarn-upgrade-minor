@@ -1,12 +1,13 @@
 {
   "name": "yarn-upgrade-minor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Install the latest release with the same major version.",
   "main": "index.js",
   "repository": "https://github.com/tlg-265/yarn-upgrade-minor",
   "author": "Angel Hernandez <angel@theleadgroup.com>",
   "license": "MIT",
   "dependencies": {
+    "console.table": "^0.10.0",
     "jspm": "^2.0.0-beta.7",
     "outdated": "^0.1.1"
   }
