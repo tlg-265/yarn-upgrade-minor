@@ -99,10 +99,8 @@ $ yarn -v
 
 ## Usage
 
-The following is tested on `Windows` + `Git Bash`:
-
 ```
 $ yarn global add yarn-upgrade-minor
 $ cd my-project
-$ node "$(yarn global bin)/../Data/global/node_modules/yarn-upgrade-minor"
+$ yarn-upgrade-minor
 ```

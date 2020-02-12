@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const outdated = require("outdated");
 require('console.table');
 const { execSync } = require('child_process');

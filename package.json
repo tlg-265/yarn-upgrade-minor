@@ -1,7 +1,10 @@
 {
   "name": "yarn-upgrade-minor",
-  "version": "1.0.4",
+  "version": "1.0.12",
   "description": "Install the latest release with the same major version.",
+  "bin": {
+    "yarn-upgrade-minor": "index.js"
+  },
   "main": "index.js",
   "repository": "https://github.com/tlg-265/yarn-upgrade-minor",
   "author": "Angel Hernandez <angel@theleadgroup.com>",
