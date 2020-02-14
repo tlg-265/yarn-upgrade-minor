@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-const outdated = require("outdated");
 require('console.table');
-const { execSync } = require('child_process');
+const { exec, execSync } = require('child_process');
 
 function is_updatable_to(dep) {
   var local_v = dep.local.split('.').map(x => parseInt(x));
@@ -49,23 +48,19 @@ function update_dependencies(deps) {
 
 console.log(`Gathering information. Please, wait few seconds...\n`);
 
-outdated({
-  silent: true,
-  all: false,
-  ask: false,
-  prune: false,
-  update: false,
-  jsonUpdate: false,
-  verbose: 0,
-  bower: false,
-  jspm: false
-}).then(function(context) {
+var command = 'yarn outdated --json';
+exec(command, (err, stdout, stderr) => {
+  var json = stdout.split('\n')[1]; // second line (index: 1) contains the actual data
+  var data = JSON.parse(json);
   var result = [];
-  for (var i = 0, j = 1; i < context.dependencies.npm.length; i++) {
-    var dep = context.dependencies.npm[i];
-    if (dep['current'] === undefined) {
-      continue;
-    }
+  for (var i = 0, j = 1; i < data.data.body.length; i++) {
+    var dep = data.data.body[i];
+    dep = {
+      name: dep[0],
+      local: dep[1],
+      wanted: dep[2],
+      latest: dep[3],
+    };
     var target_ver = is_updatable_to(dep);
     if (!target_ver) {
       continue

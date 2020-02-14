@@ -1,6 +1,6 @@
 {
   "name": "yarn-upgrade-minor",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Install the latest release with the same major version.",
   "bin": {
     "yarn-upgrade-minor": "index.js"
@@ -12,7 +12,6 @@
   "dependencies": {
     "child_process": "^1.0.2",
     "console.table": "^0.10.0",
-    "jspm": "^2.0.0-beta.7",
-    "outdated": "^0.1.1"
+    "jspm": "^2.0.0-beta.7"
   }
 }
